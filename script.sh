@@ -5,4 +5,4 @@ sudo crontab -e
   @reboot xset -dpms
   @reboot xset s no blank
   @reboot unclutter -idle 0.1 -root
-  @reboot chromium-browser --kiosk /home/helpdesk/Desktop/youtube.html
+  @reboot chromium-browser --kiosk /home/helpdesk/Raspberry-Kiosk-Script/youtube.html
