@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Replace MARKET="xxxx" with the market of the Pi.
 MARKET="ATLANTA"
 
 HTML_FILE_PATH="/home/helpdesk/market.html"
