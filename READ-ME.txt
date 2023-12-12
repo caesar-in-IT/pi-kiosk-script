@@ -3,8 +3,8 @@
 1.	Install RaspiOS.: Raspberry Pi OS – Raspberry Pi
   a.	Download this .img file from the Pi Archive (used for AnyDesk support as of 12/12/23):
     i. 2021-05-07-raspios-buster-armhf-full
-
-    ii.	Choose Device, OS, and Storage.
+    ii. Install Raspberry Pi Imager from the Raspi site.
+    iii.	Choose Device, OS, and Storage.
       1.	Raspberry Pi 4
       2.	Scroll to bottom and choose custom, then select the .img file from where you saved it.
       3.	Choose the SD card after inserting it into the USB reader and then into your laptop.
