@@ -1,0 +1,46 @@
+[Raspberry Pi Kiosk Setup]
+
+1.	Install RaspiOS.: Raspberry Pi OS – Raspberry Pi
+  a.	Download this .img file from the Pi Archive (used for AnyDesk support as of 12/12/23):
+    i. 2021-05-07-raspios-buster-armhf-full
+
+    ii.	Choose Device, OS, and Storage.
+      1.	Raspberry Pi 4
+      2.	Scroll to bottom and choose custom, then select the .img file from where you saved it.
+      3.	Choose the SD card after inserting it into the USB reader and then into your laptop.
+      4.	Click Next, no.
+
+2.	Once the Imager finishes, eject the SD card from your machine, remove it from the reader and insert it into the RasPi.
+
+3.	Power the RasPi on and then go through the setup screen.
+  a.	 Create Account.
+    i.	Username: helpdesk (change if you want, but update the script as needed)
+    ii.	Password: @@@@@@@@@ (create your own)
+  b.	Connect to Wifi if not already.
+  c.	Add Location/Time settings.
+  d.	Let the OS install updates.
+
+4.	Now that you’re into the desktop environment, open the web browser in the top left corner.
+  a.	Navigate to: caesar-in-IT/pi-kiosk-script at v1.0.0 (github.com)
+    i.	Download the latest “kiosk.sh” version, currently 2.0.
+    ii.	Open File Manager and rename the file to just “kiosk.sh” in downloads folder, then move it to the /home/helpdesk directory.
+
+5.	Right Click the “kiosk.sh” file and select “Text Editor” from the options. In the first few lines, change “MARKET=’ATLANTA’” to the desired market, this needs to be case sensitive and accurate to the market .html in the Github repo unless you plan to remap the script to a different one entirely.
+
+6.	Open the Terminal and enter “sudo nano /etc/xdg/lxsession/LXDE-pi/autostart” and enter “@/home/helpdesk/kiosk.sh” on an empty line.
+
+7.	In another Terminal window enter “sudo crontab -e” and go to the bottom of the instructions text, enter a time to reboot the system. 
+  a.	Ex: “58 23 * * * /usr/sbin/shutdown -r”
+    i.	This shuts down and reboots the Pi at midnight every day.
+
+8.	Lastly, open another terminal and enter “chmod +x /home/helpdesk/kiosk.sh”
+  a.	This makes “kiosk.sh” executable.
+
+9.	Navigate to the top left and select “logoutreboot” from under the Raspberry logo or execute “sudo shutdown -r now” through the terminal.
+
+10.	Once the Pi boots the video from the Github .html selected will be chosen.
+
+[TROUBLESHOOTING]
+1. If the video does not load and you get a grey screen on boot, make sure to go into the home directory and open the file "market.html" manually and see if the video loads. If not open the "market.html" with Text Editor and copy the URL directly into your Chromium. Now reboot.
+
+2. If you wish to change the video played by each market, simply open the .html in Github and change the video ID, make sure the video plays in your browser using the updated link before committing
